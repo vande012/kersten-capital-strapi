@@ -15,7 +15,12 @@ export default [
       },
     },
   },
-  'strapi::cors',
+  {
+    name: 'strapi::cors',
+    config: {
+      origin: ['https://perpetual-motivation-production.up.railway.app', 'http://localhost:1337'],
+    },
+  },
   'strapi::poweredBy',
   'strapi::query',
   'strapi::body',
