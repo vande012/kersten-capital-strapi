@@ -21,6 +21,11 @@ export default ({ env }) => {
           providerOptions: {},
         },
       },
+      'users-permissions': {
+        config: {
+          jwtSecret: env('JWT_SECRET'),
+        },
+      },
     };
   }
 
@@ -50,6 +55,11 @@ export default ({ env }) => {
           uploadStream: {},
           delete: {},
         },
+      },
+    },
+    'users-permissions': {
+      config: {
+        jwtSecret: env('JWT_SECRET'),
       },
     },
   };
