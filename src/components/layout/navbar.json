@@ -8,21 +8,23 @@
   },
   "options": {},
   "attributes": {
-    "links": {
-      "type": "component",
-      "repeatable": true,
-      "component": "links.link"
-    },
     "button": {
       "type": "component",
       "repeatable": false,
       "component": "links.button-link"
     },
     "logo": {
-      "allowedTypes": ["images"],
       "type": "media",
       "multiple": false,
-      "required": true
+      "required": true,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "menu": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.footer-section"
     }
   }
 }

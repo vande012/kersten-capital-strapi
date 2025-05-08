@@ -5,7 +5,8 @@
     "singularName": "global",
     "pluralName": "globals",
     "displayName": "Global",
-    "name": "global"
+    "name": "global",
+    "description": ""
   },
   "options": {
     "draftAndPublish": false
@@ -36,9 +37,12 @@
       }
     },
     "favicon": {
-      "allowedTypes": ["images"],
       "type": "media",
       "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ],
       "pluginOptions": {
         "i18n": {
           "localized": true

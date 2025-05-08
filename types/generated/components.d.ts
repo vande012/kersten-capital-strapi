@@ -142,8 +142,8 @@ export interface LayoutNavbar extends Struct.ComponentSchema {
   };
   attributes: {
     button: Schema.Attribute.Component<'links.button-link', false>;
-    links: Schema.Attribute.Component<'links.link', true>;
     logo: Schema.Attribute.Media<'images'> & Schema.Attribute.Required;
+    menu: Schema.Attribute.Component<'elements.footer-section', true>;
   };
 }
 
@@ -189,22 +189,6 @@ export interface LinksLink extends Struct.ComponentSchema {
     newTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
-  };
-}
-
-export interface LinksNavigationItem extends Struct.ComponentSchema {
-  collectionName: 'components_links_navigation_items';
-  info: {
-    description: 'Navigation menu item that can have children';
-    displayName: 'Navigation Item';
-    icon: 'bars';
-    name: 'Navigation Item';
-  };
-  attributes: {
-    children: Schema.Attribute.Component<'links.navigation-item', true>;
-    newTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
-    text: Schema.Attribute.String & Schema.Attribute.Required;
-    url: Schema.Attribute.String;
   };
 }
 
@@ -369,7 +353,6 @@ declare module '@strapi/strapi' {
       'links.button': LinksButton;
       'links.button-link': LinksButtonLink;
       'links.link': LinksLink;
-      'links.navigation-item': LinksNavigationItem;
       'meta.metadata': MetaMetadata;
       'sections.bottom-actions': SectionsBottomActions;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
