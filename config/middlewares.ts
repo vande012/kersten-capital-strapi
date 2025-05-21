@@ -18,7 +18,7 @@ export default [
   {
     name: 'strapi::cors',
     config: {
-      origin: ['https://perpetual-motivation-production.up.railway.app', 'http://localhost:1337'],
+      origin: ['https://kerstentalentcapital.com/', 'http://localhost:3000', 'https://perpetual-motivation-production.up.railway.app', 'http://localhost:1337'],
     },
   },
   'strapi::poweredBy',
