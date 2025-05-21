@@ -195,6 +195,7 @@ export interface LinksLink extends Struct.ComponentSchema {
 export interface MetaMetadata extends Struct.ComponentSchema {
   collectionName: 'components_meta_metadata';
   info: {
+    description: '';
     displayName: 'Metadata';
     icon: 'robot';
     name: 'Metadata';
@@ -202,12 +203,17 @@ export interface MetaMetadata extends Struct.ComponentSchema {
   attributes: {
     metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
     metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
-    twitterCardType: Schema.Attribute.Enumeration<
-      ['summary', 'summary_large_image', 'app', 'player']
-    > &
-      Schema.Attribute.DefaultTo<'summary'>;
-    twitterUsername: Schema.Attribute.String;
+  };
+}
+
+export interface SchemaFaqSchema extends Struct.ComponentSchema {
+  collectionName: 'components_schema_faq_schemas';
+  info: {
+    displayName: 'faq-schema';
+  };
+  attributes: {
+    faqs: Schema.Attribute.Relation<'oneToMany', 'api::faq.faq'>;
+    mainEntityName: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -354,6 +360,7 @@ declare module '@strapi/strapi' {
       'links.button-link': LinksButtonLink;
       'links.link': LinksLink;
       'meta.metadata': MetaMetadata;
+      'schema.faq-schema': SchemaFaqSchema;
       'sections.bottom-actions': SectionsBottomActions;
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.feature-rows-group': SectionsFeatureRowsGroup;

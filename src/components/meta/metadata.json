@@ -3,7 +3,8 @@
   "info": {
     "name": "Metadata",
     "displayName": "Metadata",
-    "icon": "robot"
+    "icon": "robot",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -14,20 +15,6 @@
     "metaDescription": {
       "type": "text",
       "required": true
-    },
-    "shareImage": {
-      "allowedTypes": ["images"],
-      "type": "media",
-      "multiple": false,
-      "required": false
-    },
-    "twitterCardType": {
-      "type": "enumeration",
-      "enum": ["summary", "summary_large_image", "app", "player"],
-      "default": "summary"
-    },
-    "twitterUsername": {
-      "type": "string"
     }
   }
 }
