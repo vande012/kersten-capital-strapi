@@ -187,8 +187,21 @@ export interface LinksLink extends Struct.ComponentSchema {
   };
   attributes: {
     newTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    subMenuItems: Schema.Attribute.Component<'links.sub-menu-items', true>;
     text: Schema.Attribute.String & Schema.Attribute.Required;
     url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface LinksSubMenuItems extends Struct.ComponentSchema {
+  collectionName: 'components_links_sub_menu_items';
+  info: {
+    displayName: 'subMenuItems';
+  };
+  attributes: {
+    newTab: Schema.Attribute.Boolean;
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
   };
 }
 
@@ -362,6 +375,7 @@ declare module '@strapi/strapi' {
       'links.button': LinksButton;
       'links.button-link': LinksButtonLink;
       'links.link': LinksLink;
+      'links.sub-menu-items': LinksSubMenuItems;
       'meta.metadata': MetaMetadata;
       'schema.faq-schema': SchemaFaqSchema;
       'sections.bottom-actions': SectionsBottomActions;

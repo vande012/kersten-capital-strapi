@@ -5,7 +5,8 @@
     "singularName": "page",
     "pluralName": "pages",
     "displayName": "Page",
-    "name": "page"
+    "name": "page",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -62,6 +63,16 @@
       },
       "type": "string",
       "regex": "^$|^[a-zA-Z/-]+$"
+    },
+    "pageType": {
+      "type": "enumeration",
+      "enum": [
+        "parent",
+        "child",
+        "standalone"
+      ],
+      "required": true,
+      "default": "standalone"
     }
   }
 }

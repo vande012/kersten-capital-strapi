@@ -19,6 +19,12 @@
     "text": {
       "type": "string",
       "required": true
+    },
+    "subMenuItems": {
+      "displayName": "subMenuItems",
+      "type": "component",
+      "repeatable": true,
+      "component": "links.sub-menu-items"
     }
   }
 }

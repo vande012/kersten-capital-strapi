@@ -647,6 +647,7 @@ export interface ApiLeadFormSubmissionLeadFormSubmission
 export interface ApiPagePage extends Struct.CollectionTypeSchema {
   collectionName: 'pages';
   info: {
+    description: '';
     displayName: 'Page';
     name: 'page';
     pluralName: 'pages';
@@ -691,6 +692,9 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    pageType: Schema.Attribute.Enumeration<['parent', 'child', 'standalone']> &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<'standalone'>;
     publishedAt: Schema.Attribute.DateTime;
     shortName: Schema.Attribute.String &
       Schema.Attribute.SetPluginOptions<{
