@@ -44,6 +44,21 @@ export interface ElementsFeatureRow extends Struct.ComponentSchema {
   };
 }
 
+export interface ElementsFocusArea extends Struct.ComponentSchema {
+  collectionName: 'components_elements_focus_areas';
+  info: {
+    description: '';
+    displayName: 'Focus Area';
+    icon: 'star';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    displayOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    icon: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface ElementsFooterSection extends Struct.ComponentSchema {
   collectionName: 'components_links_footer_sections';
   info: {
@@ -54,6 +69,33 @@ export interface ElementsFooterSection extends Struct.ComponentSchema {
   attributes: {
     links: Schema.Attribute.Component<'links.link', true>;
     title: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsHighlight extends Struct.ComponentSchema {
+  collectionName: 'components_elements_highlights';
+  info: {
+    displayName: 'Highlight';
+    icon: 'lightbulb';
+  };
+  attributes: {
+    isEmphasized: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ElementsIdealForItem extends Struct.ComponentSchema {
+  collectionName: 'components_elements_ideal_for_items';
+  info: {
+    description: '';
+    displayName: 'Ideal For Item';
+    icon: 'check';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    displayOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    icon: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -98,6 +140,36 @@ export interface ElementsPlan extends Struct.ComponentSchema {
     name: Schema.Attribute.String;
     price: Schema.Attribute.Decimal;
     pricePeriod: Schema.Attribute.String;
+  };
+}
+
+export interface ElementsProcessStep extends Struct.ComponentSchema {
+  collectionName: 'components_elements_process_steps';
+  info: {
+    description: '';
+    displayName: 'Process Step';
+    icon: 'bulletList';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    icon: Schema.Attribute.String;
+    stepNumber: Schema.Attribute.Integer & Schema.Attribute.Required;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
+export interface ElementsServiceFeature extends Struct.ComponentSchema {
+  collectionName: 'components_elements_service_features';
+  info: {
+    description: '';
+    displayName: 'Service Feature';
+    icon: 'check';
+  };
+  attributes: {
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    displayOrder: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<0>;
+    icon: Schema.Attribute.String;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -287,6 +359,20 @@ export interface SectionsHero extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsIndustryOverview extends Struct.ComponentSchema {
+  collectionName: 'components_sections_industry_overviews';
+  info: {
+    description: '';
+    displayName: 'Industry Overview';
+    icon: 'file';
+  };
+  attributes: {
+    content: Schema.Attribute.RichText & Schema.Attribute.Required;
+    highlights: Schema.Attribute.Component<'elements.highlight', true>;
+    text: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SectionsLargeVideo extends Struct.ComponentSchema {
   collectionName: 'components_slices_large_videos';
   info: {
@@ -365,10 +451,15 @@ declare module '@strapi/strapi' {
       'elements.feature': ElementsFeature;
       'elements.feature-column': ElementsFeatureColumn;
       'elements.feature-row': ElementsFeatureRow;
+      'elements.focus-area': ElementsFocusArea;
       'elements.footer-section': ElementsFooterSection;
+      'elements.highlight': ElementsHighlight;
+      'elements.ideal-for-item': ElementsIdealForItem;
       'elements.logos': ElementsLogos;
       'elements.notification-banner': ElementsNotificationBanner;
       'elements.plan': ElementsPlan;
+      'elements.process-step': ElementsProcessStep;
+      'elements.service-feature': ElementsServiceFeature;
       'elements.testimonial': ElementsTestimonial;
       'layout.footer': LayoutFooter;
       'layout.navbar': LayoutNavbar;
@@ -382,6 +473,7 @@ declare module '@strapi/strapi' {
       'sections.feature-columns-group': SectionsFeatureColumnsGroup;
       'sections.feature-rows-group': SectionsFeatureRowsGroup;
       'sections.hero': SectionsHero;
+      'sections.industry-overview': SectionsIndustryOverview;
       'sections.large-video': SectionsLargeVideo;
       'sections.lead-form': SectionsLeadForm;
       'sections.pricing': SectionsPricing;

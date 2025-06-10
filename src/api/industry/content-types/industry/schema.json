@@ -1,0 +1,62 @@
+{
+  "kind": "collectionType",
+  "collectionName": "industries",
+  "info": {
+    "singularName": "industry",
+    "pluralName": "industries",
+    "displayName": "Industry",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "slug": {
+      "type": "uid",
+      "targetField": "title"
+    },
+    "shortDescription": {
+      "type": "text",
+      "required": true
+    },
+    "isActive": {
+      "type": "boolean",
+      "default": true
+    },
+    "displayOrder": {
+      "type": "integer",
+      "default": 0
+    },
+    "heroTitle": {
+      "type": "string"
+    },
+    "heroSubtitle": {
+      "type": "text"
+    },
+    "heroImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "gradient": {
+      "type": "string",
+      "default": "from-[#0C6BAF] to-[#187CC1]"
+    },
+    "overviewSection": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.industry-overview"
+    },
+    "focusAreas": {
+      "type": "component",
+      "repeatable": true,
+      "component": "elements.focus-area"
+    }
+  }
+}
