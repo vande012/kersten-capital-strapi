@@ -424,7 +424,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
       'manyToMany',
       'api::category.category'
     >;
-    content: Schema.Attribute.Blocks;
+    content: Schema.Attribute.RichText;
     coverImage: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios'
     >;

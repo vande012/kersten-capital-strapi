@@ -28,9 +28,6 @@
       "type": "text",
       "maxLength": 160
     },
-    "content": {
-      "type": "blocks"
-    },
     "coverImage": {
       "type": "media",
       "multiple": false,
@@ -53,6 +50,9 @@
       "relation": "manyToMany",
       "target": "api::category.category",
       "mappedBy": "blog_posts"
+    },
+    "content": {
+      "type": "richtext"
     }
   }
 }
