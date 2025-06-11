@@ -10,6 +10,7 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string"
@@ -17,6 +18,11 @@
     "slug": {
       "type": "uid",
       "targetField": "title"
+    },
+    "author": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::author.author"
     },
     "excerpt": {
       "type": "text",
@@ -38,9 +44,9 @@
     },
     "seo": {
       "type": "component",
+      "component": "meta.metadata",
       "repeatable": false,
-      "required": true,
-      "component": "meta.metadata"
+      "required": true
     },
     "categories": {
       "type": "relation",

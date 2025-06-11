@@ -10,14 +10,17 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "title": {
       "type": "string",
       "required": true
     },
     "slug": {
-      "type": "uid",
-      "targetField": "title"
+      "type": "string",
+      "default": "URL slug (e.g., technology-financial-services or manufacturing/utilities)",
+      "required": true,
+      "unique": true
     },
     "shortDescription": {
       "type": "text",
@@ -38,11 +41,11 @@
       "type": "text"
     },
     "heroImage": {
+      "type": "media",
+      "multiple": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "gradient": {
       "type": "string",
@@ -50,13 +53,13 @@
     },
     "overviewSection": {
       "type": "component",
-      "repeatable": false,
-      "component": "sections.industry-overview"
+      "component": "sections.industry-overview",
+      "repeatable": false
     },
     "focusAreas": {
       "type": "component",
-      "repeatable": true,
-      "component": "elements.focus-area"
+      "component": "elements.focus-area",
+      "repeatable": true
     }
   }
 }

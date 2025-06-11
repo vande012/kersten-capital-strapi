@@ -419,6 +419,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    author: Schema.Attribute.Relation<'oneToOne', 'api::author.author'>;
     categories: Schema.Attribute.Relation<
       'manyToMany',
       'api::category.category'
@@ -686,7 +687,10 @@ export interface ApiIndustryIndustry extends Struct.CollectionTypeSchema {
     >;
     publishedAt: Schema.Attribute.DateTime;
     shortDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    slug: Schema.Attribute.UID<'title'>;
+    slug: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Unique &
+      Schema.Attribute.DefaultTo<'URL slug (e.g., technology-financial-services or manufacturing/utilities)'>;
     title: Schema.Attribute.String & Schema.Attribute.Required;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
